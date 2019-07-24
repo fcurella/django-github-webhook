@@ -51,7 +51,7 @@ class WebHookView(View):
     def post(self, request, *args, **kwargs):
         secret = self.get_secret()
         if not secret:
-            raise ImproperlyConfigured('GitHub webhook secret ist not defined.')
+            raise ImproperlyConfigured('GitHub webhook secret is not defined.')
         if 'HTTP_X_HUB_SIGNATURE' not in request.META:
             return HttpResponseBadRequest('Request does not contain X-GITHUB-SIGNATURE header')
         if 'HTTP_X_GITHUB_EVENT' not in request.META:
